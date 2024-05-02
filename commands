@@ -1,0 +1,18 @@
+
+# Build local image
+docker build . -t demoapp
+
+# Deploy local stack
+docker stack deploy -c compose.yml demo
+
+# Remove stack
+docker service rm demo_app
+
+# Update service image
+docker service update demo_app --force
+
+
+curl localhost
+
+# Repeat.......
+curl localhost/?[1-10000000]
